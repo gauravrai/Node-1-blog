@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Edit Post Form</h1>
+    <div class="row p-4">
+        <div class="col-md-10">
+            <form action="/admin/posts/edit/{{post._id}}?newMethod=PUT" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" value="{{post.title}}" placeholder="Title" id="">
+                </div>
+                <div class="form-group">
+                    <label for="file">File Upload</label>
+                    <input type="file" name="file" class="form-control" id="file">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select name="status" id="" class="form-control">
+                        <option value="">Select Status</option>
+
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Category</label>
+                    <select name="category" id="" class="form-control">
+                        <option value="">Select Category</option>
+                        {{#select post.category}}
+                            {{#each categories}}
+                            <option value="{{_id}}">{{title}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="form-check ml-3">
+                    <label for="allowComments">
+                        <input type="checkbox" name="allowComments" class="form-check-input" id="">
+                        Allow Comments
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="title">Content</label>
+                    <textarea name="description" class="form-control" placeholder="Enter your content here" id="" cols="30" rows="10" class="form">{{post.description}}</textarea>
+                </div>
+                <button class="btn btn-outline-success btn-lg" type="submit">Create Post</button>
+            </form>
+        </div>
+    </div>
+</div>

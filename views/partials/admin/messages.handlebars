@@ -1,0 +1,18 @@
+<div class="container" > 
+    {{#if success_message}}
+    <div class="alert alert-success alert-dismissable">
+        <strong>{{success_message}}</strong>
+        <button class="close" type="button" data-dismiss='alert' area-label='close'>
+            <span area-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{/if}}
+    {{#if error_message}}
+    <div class="alert alert-danger alert-dismissable">
+        <strong>{{error_message}}</strong>
+        <button class="close" type="button" data-dismiss='alert' area-label='close'>
+            <span area-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{/if}}
+</div>
